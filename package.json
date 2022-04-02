@@ -5,5 +5,21 @@
   "main": "index.js",
   "repository": "https://github.com/bamcerr/movie-gql.git",
   "author": "bamcerr@gmail.com",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "@graphql-tools/schema": "^8.3.6",
+    "@graphql-yoga/node": "^2.0.0",
+    "graphql": "^16.3.0"
+  },
+  "scripts": {
+    "dev": "cross-env NODE_ENV=development ts-node-dev --exit-child --respawn src/main.ts",
+    "start": "ts-node src/main.ts"
+  },
+  "devDependencies": {
+    "@types/node": "^17.0.23",
+    "cross-env": "^7.0.3",
+    "ts-node": "^10.7.0",
+    "ts-node-dev": "^1.1.8",
+    "typescript": "^4.6.3"
+  }
 }
