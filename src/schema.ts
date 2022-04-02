@@ -3,13 +3,33 @@ import type { GraphQLContext } from "./context"
 import type { Link } from '@prisma/client'
 import { GraphQLYogaError } from "@graphql-yoga/node"
 import { PrismaClientKnownRequestError } from "@prisma/client/runtime"
-
+import { getMovies, getMovie, getSuggestions } from "./db"
 
 const typeDefinitions = /* GraphQL */`
   type Query {
     info: String!
     feed(filterNeedle: String, skip: Int, take: Int): [Link!]!
     comment(id: ID!): Comment
+    movies(limit: Int, rating: Float): [Movie]!
+    movie(id: ID!): MovieDetail!
+    movie_suggestions(id: ID!): [Movie]!
+  }
+
+  type Movie {
+    id: Int!
+    title: String!
+    rating: Float!
+    summary: String!
+    language: String!
+    medium_cover_image: String!
+  }
+  type MovieDetail {
+    id: Int!
+    title: String!
+    rating: Float!
+    description_full: String!
+    language: String!
+    medium_cover_image: String!
   }
 
   type Link {
@@ -84,7 +104,10 @@ const resolvers = {
       return context.prisma.comment.findUnique({
         where: { id: parseInt(args.id )}
       })
-    }
+    },
+    movies: (_:unknown, args:{ rating:number, limit:number }) => getMovies(args.limit, args.rating),
+    movie: (_:unknown, args:{ id:number }) => getMovie(args.id),
+    movie_suggestions: (_:unknown, args:{ id:number }) => getSuggestions(args.id),
   },
 
   Link: {
