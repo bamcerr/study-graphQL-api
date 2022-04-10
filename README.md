@@ -1,3 +1,5 @@
+# graphQL with grapqhql-yoga, prisma 
+<!-- 
 https://www.graphql-yoga.com/tutorial/basic/01-project-setup
 
 `
@@ -21,6 +23,6 @@ $ yarn ts-node src/script.ts
 ...
 $ yarn ts-node src/script.ts
 $ yarn prisma studio
-`
+` -->
 
 

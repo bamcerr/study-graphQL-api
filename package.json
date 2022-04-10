@@ -1,9 +1,9 @@
 {
-  "name": "movie-gql",
+  "name": "study-graphql-api",
   "version": "1.0.0",
-  "description": "Movie API with Graphql",
+  "description": "API with graphql-yoga, prisma, graphql",
   "main": "index.js",
-  "repository": "https://github.com/bamcerr/movie-gql.git",
+  "repository": "https://github.com/bamcerr/study-graphql-api.git",
   "author": "bamcerr@gmail.com",
   "license": "MIT",
   "dependencies": {
