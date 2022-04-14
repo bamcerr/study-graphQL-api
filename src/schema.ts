@@ -11,7 +11,7 @@ const typeDefinitions = /* GraphQL */`
     feed(filterNeedle: String, skip: Int, take: Int): [Link!]!
     comment(id: ID!): Comment
     movies(limit: Int, rating: Float): [Movie]!
-    movie(id: ID!): MovieDetail!
+    movie(id: ID!): Movie!
     movie_suggestions(id: ID!): [Movie]!
   }
 
@@ -22,15 +22,16 @@ const typeDefinitions = /* GraphQL */`
     summary: String!
     language: String!
     medium_cover_image: String!
+    description_full: String
   }
-  type MovieDetail {
-    id: Int!
-    title: String!
-    rating: Float!
-    description_full: String!
-    language: String!
-    medium_cover_image: String!
-  }
+  # type MovieDetail {
+  #   id: Int!
+  #   title: String!
+  #   rating: Float!
+  #   description_full: String!
+  #   language: String!
+  #   medium_cover_image: String!
+  # }
 
   type Link {
     id: ID!
